@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CRITICAL: Import the Inter font used by the Foodzy app */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* Basic body styling for Inter font and background color */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb; /* gray-50 equivalent */
+  margin: 0;
+  padding: 0;
+}
