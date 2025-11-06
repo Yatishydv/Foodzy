@@ -70,125 +70,248 @@ const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-foodzy-id';
 const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 const apiKey = "AIzaSyCqJmtwytjxw8tkCBdgChzfMy29CmukH74"; 
 
-// --- MOCK DISH DATA (OVER 70 ITEMS) ---
+// // --- MOCK DISH DATA (OVER 70 ITEMS) ---
+// const MOCK_DISHES = [
+//   // The Curry House (Indian) - 10 dishes (r101)
+//   { id: 'd001', name: 'Butter Chicken', desc: 'Creamy tomato-based curry, rich in flavor.', price: 15.99, imgUrl: 'assets/butterchicken.png', category: 'Mains', restaurantId: 'r101' },
+//   { id: 'd002', name: 'Garlic Naan', desc: 'Leavened bread with garlic, brushed with butter.', price: 3.99, imgUrl: 'assets/naan.png', category: 'Breads', restaurantId: 'r101' },
+//   { id: 'd003', name: 'Chicken Biryani', desc: 'Aromatic basmati rice cooked with spiced chicken.', price: 18.50, imgUrl: 'assets/cknbiryani.png', category: 'Rice & Biryani', restaurantId: 'r101' },
+//   { id: 'd004', name: 'Aloo Gobi', desc: 'Potatoes and cauliflower sautéed with spices.', price: 12.00, imgUrl: 'assets/aalogobhi.png', category: 'Mains', restaurantId: 'r101' },
+//   { id: 'd005', name: 'Tandoori Roti', desc: 'Whole wheat bread baked in a clay oven.', price: 2.50, imgUrl: 'assets/tandoriroti.png', category: 'Breads', restaurantId: 'r101' },
+//   { id: 'd006', name: 'Paneer Tikka Masala', desc: 'Cubes of cottage cheese in a rich gravy.', price: 16.99, imgUrl: 'assets/paneer-tikka-masa.png', category: 'Mains', restaurantId: 'r101' },
+//   { id: 'd007', name: 'Dal Makhani', desc: 'Black lentils and kidney beans cooked slowly.', price: 13.50, imgUrl: 'assets/dalmakhani.png', category: 'Mains', restaurantId: 'r101' },
+//   { id: 'd008', name: 'Mango Lassi', desc: 'Sweet yogurt drink blended with fresh mango.', price: 5.00, imgUrl: 'assets/mangolassi.png', category: 'Beverages', restaurantId: 'r101' },
+//   { id: 'd009', name: 'Jeera Rice', desc: 'Basmati rice tempered with cumin seeds.', price: 6.50, imgUrl: 'assets/jeerarice.jpeg', category: 'Rice & Biryani', restaurantId: 'r101' },
+//   { id: 'd010', name: 'Samosa (2 pcs)', desc: 'Crispy fried pastries filled with spiced potatoes.', price: 4.50, imgUrl: 'assets/samosa.png', category: 'Appetizers', restaurantId: 'r101' },
+
+//   // Pizza Planet (Italian) - 10 dishes (r102)
+//   { id: 'd011', name: 'Pepperoni Pizza', desc: 'Classic pepperoni and mozzarella on marinara.', price: 18.50, imgUrl: 'assets/PepperoniPizza.png', category: 'Pizzas', restaurantId: 'r102' },
+//   { id: 'd012', name: 'Caesar Salad', desc: 'Crisp romaine, croutons, and creamy dressing.', price: 8.00, imgUrl: 'assets/CaesarSalad.png', category: 'Salads', restaurantId: 'r102' },
+//   { id: 'd013', name: 'Margherita Pizza', desc: 'Fresh mozzarella, basil, and tomato sauce.', price: 16.00, imgUrl: 'assets/Margherita Pizza.png', category: 'Pizzas', restaurantId: 'r102' },
+//   { id: 'd014', name: 'Spaghetti Bolognese', desc: 'Beef ragu simmered for hours over spaghetti.', price: 17.50, imgUrl: 'assets/Spaghetti Bolognese.png', category: 'Pasta', restaurantId: 'r102' },
+//   { id: 'd015', name: 'Garlic Knots (6 pcs)', desc: 'Baked dough tied in knots, coated in garlic butter.', price: 6.50, imgUrl: 'assets/Garlic Knots.png', category: 'Sides', restaurantId: 'r102' },
+//   { id: 'd016', name: 'Tiramisu', desc: 'Layers of coffee-soaked ladyfingers and mascarpone.', price: 9.00, imgUrl: 'assets/Tiramisu.png', category: 'Desserts', restaurantId: 'r102' },
+//   { id: 'd017', name: 'Veggie Supreme Pizza', desc: 'Bell peppers, olives, mushrooms, and onions.', price: 19.50, imgUrl: 'assets/Veggie Supreme Pizza.png', category: 'Pizzas', restaurantId: 'r102' },
+//   { id: 'd018', name: 'Fettuccine Alfredo', desc: 'Fettuccine pasta tossed in a creamy parmesan sauce.', price: 16.50, imgUrl: 'assets/Fettuccine Alfredo.png', category: 'Pasta', restaurantId: 'r102' },
+//   { id: 'd019', name: 'Minestrone Soup', desc: 'Hearty vegetable soup with pasta and beans.', price: 7.00, imgUrl: 'assets/Minestrone Soup.png', category: 'Appetizers', restaurantId: 'r102' },
+//   { id: 'd020', name: 'Soda (Can)', desc: 'Assorted canned sodas.', price: 2.00, imgUrl: 'assets/soda.png', category: 'Beverages', restaurantId: 'r102' },
+
+//   // Veggie Delights (Vegan) - 10 dishes (r103)
+//   { id: 'd021', name: 'Tofu Stir-fry', desc: 'Wok-tossed tofu with seasonal greens and ginger sauce.', price: 14.50, imgUrl: 'assets/Tofu Stir-fry.png', category: 'Mains', restaurantId: 'r103' },
+//   { id: 'd022', name: 'Avocado Toast', desc: 'Sourdough toast topped with smashed avocado.', price: 7.00, imgUrl: 'assets/Avocado Toast.png', category: 'Breakfast', restaurantId: 'r103' },
+//   { id: 'd023', name: 'Lentil Soup', desc: 'Warm and comforting soup made with red lentils.', price: 6.00, imgUrl: 'assets/Lentil Soup.png', category: 'Appetizers', restaurantId: 'r103' },
+//   { id: 'd024', name: 'Quinoa Bowl', desc: 'Quinoa base with roasted vegetables and lemon vinaigrette.', price: 13.00, imgUrl: 'assets/Quinoa Bowl.png', category: 'Bowls', restaurantId: 'r103' },
+//   { id: 'd025', name: 'Vegan Wrap', desc: 'Tortilla filled with hummus, falafel, and crisp veggies.', price: 11.50, imgUrl: 'assets/Vegan Wrap.png', category: 'Sandwiches & Wraps', restaurantId: 'r103' },
+//   { id: 'd026', name: 'Green Smoothie', desc: 'Spinach, banana, and almond milk blended smoothly.', price: 7.50, imgUrl: 'assets/Green Smoothie.png', category: 'Beverages', restaurantId: 'r103' },
+//   { id: 'd027', name: 'Sweet Potato Fries', desc: 'Crispy sweet potato fries served with vegan aioli.', price: 5.50, imgUrl: 'assets/Sweet Potato Fries.png', category: 'Sides', restaurantId: 'r103' },
+//   { id: 'd028', name: 'Black Bean Burger', desc: 'House-made black bean patty on a whole wheat bun.', price: 14.00, imgUrl: 'assets/Black Bean Burger.png', category: 'Mains', restaurantId: 'r103' },
+//   { id: 'd029', name: 'Chia Seed Pudding', desc: 'Overnight chia seeds soaked in coconut milk with berries.', price: 8.50, imgUrl: 'assets/Chia Seed Pudding.png', category: 'Desserts', restaurantId: 'r103' },
+//   { id: 'd030', name: 'Kale Caesar Salad (V)', desc: 'Kale and romaine with a creamy cashew-based dressing.', price: 12.50, imgUrl: 'assets/Kale Caesar Salad (V).png', category: 'Salads', restaurantId: 'r103' },
+
+//   // Wok Master (Chinese) - 10 dishes (r104)
+//   { id: 'd031', name: 'Chilli Chicken', desc: 'Spicy crispy chicken with onions and peppers.', price: 16.99, imgUrl: 'assets/Chilli Chicken.png', category: 'Mains', restaurantId: 'r104' },
+//   { id: 'd032', name: 'Veg Hakka Noodles', desc: 'Hakka noodles tossed with vegetables.', price: 10.00, imgUrl: 'assets/Veg Hakka Noodles.png', category: 'Noodles', restaurantId: 'r104' },
+//   { id: 'd033', name: 'Veg Spring Rolls (4 pcs)', desc: 'Crispy rolls filled with shredded cabbage and carrots.', price: 5.50, imgUrl: 'assets/Veg Spring Rolls.png', category: 'Appetizers', restaurantId: 'r104' },
+//   { id: 'd034', name: 'Chicken Fried Rice', desc: 'Wok-tossed rice with diced chicken and egg.', price: 14.00, imgUrl: 'assets/Chicken Fried Rice.png', category: 'Rice', restaurantId: 'r104' },
+//   { id: 'd035', name: 'Kung Pao Shrimp', desc: 'Spicy stir-fry with shrimp, peanuts, and vegetables.', price: 19.99, imgUrl: 'assets/Kung Pao Shrimp.png', category: 'Mains', restaurantId: 'r104' },
+//   { id: 'd036', name: 'Hot & Sour Soup', desc: 'Spicy and tangy thick soup.', price: 6.00, imgUrl: 'assets/Hot & Sour Soup.png', category: 'Soup', restaurantId: 'r104' },
+//   { id: 'd037', name: 'Schezwan Noodles (Veg)', desc: 'Spicy noodles with Szechuan sauce.', price: 11.50, imgUrl: 'assets/Schezwan Noodles (Veg).png', category: 'Noodles', restaurantId: 'r104' },
+//   { id: 'd038', name: 'Pork Dumplings (Steamed)', desc: 'Delicate steamed dumplings with savory pork filling.', price: 8.00, imgUrl: 'assets/Pork Dumplings (Steamed).png', category: 'Appetizers', restaurantId: 'r104' },
+//   { id: 'd039', name: 'Manchurian Veggie Balls', desc: 'Fried vegetable balls tossed in a rich Manchurian sauce.', price: 13.00, imgUrl: 'assets/Manchurian Veggie Balls.png', category: 'Mains', restaurantId: 'r104' },
+//   { id: 'd040', name: 'Fortune Cookies (3 pcs)', desc: 'Crispy cookies with fun fortunes inside.', price: 3.00, imgUrl: 'assets/Fortune Cookies.png', category: 'Desserts', restaurantId: 'r104' },
+  
+//   // The Burger Stop (r105)
+//   { id: 'd041', name: 'Classic Cheeseburger', desc: 'Beef patty, cheddar, lettuce, tomato, pickle.', price: 12.00, imgUrl: 'assets/Classic Cheeseburger.png', category: 'Burgers', restaurantId: 'r105' },
+//   { id: 'd042', name: 'Fries', desc: 'Crispy golden potato fries.', price: 4.00, imgUrl: 'assets/Fries.png', category: 'Sides', restaurantId: 'r105' },
+//   { id: 'd043', name: 'Veggie Burger', desc: 'Black bean patty with aioli.', price: 11.50, imgUrl: 'assets/Veggie Burger.png', category: 'Burgers', restaurantId: 'r105' },
+//   { id: 'd044', name: 'Onion Rings', desc: 'Thick cut onion rings.', price: 5.50, imgUrl: 'assets/Onion Rings.png', category: 'Sides', restaurantId: 'r105' },
+
+//   // Sushi Zen (r106)
+//   { id: 'd045', name: 'California Roll', desc: 'Crab, avocado, cucumber.', price: 11.00, imgUrl: 'assets/California Roll.png', category: 'Rolls', restaurantId: 'r106' },
+//   { id: 'd046', name: 'Spicy Tuna Roll', desc: 'Tuna, spicy mayo, sesame.', price: 13.00, imgUrl: 'assets/Spicy Tuna Roll.png', category: 'Rolls', restaurantId: 'r106' },
+//   { id: 'd047', name: 'Salmon Nigiri (2 pcs)', desc: 'Fresh salmon on rice.', price: 9.00, imgUrl: 'assets/Salmon Nigiri.png', category: 'Nigiri', restaurantId: 'r106' },
+//   { id: 'd048', name: 'Miso Soup', desc: 'Soybean paste soup with tofu.', price: 4.00, imgUrl: 'assets/Miso Soup.png', category: 'Soup', restaurantId: 'r106' },
+
+//   // Taco Fiesta (Mexican) (r107)
+//   { id: 'd049', name: 'Beef Tacos (2 pcs)', desc: 'Ground beef, salsa, cheese, corn tortilla.', price: 10.00, imgUrl: 'assets/Beef Tacos.png', category: 'Tacos', restaurantId: 'r107' },
+//   { id: 'd050', name: 'Chicken Burrito', desc: 'Rice, beans, chicken, sour cream, wrapped.', price: 14.00, imgUrl: 'assets/Chicken Burrito.png', category: 'Burritos', restaurantId: 'r107' },
+//   { id: 'd051', name: 'Guacamole & Chips', desc: 'Fresh avocado dip with corn chips.', price: 9.00, imgUrl: 'assets/Guacamole & Chips.png', category: 'Appetizers', restaurantId: 'r107' },
+//   { id: 'd052', name: 'Churros', desc: 'Cinnamon sugar pastry sticks with dipping sauce.', price: 6.50, imgUrl: 'assets/Churros.png', category: 'Desserts', restaurantId: 'r107' },
+
+//   // Mediterranean Grill (r108)
+//   { id: 'd053', name: 'Chicken Shawarma Plate', desc: 'Marinated chicken, rice, salad, hummus.', price: 18.00, imgUrl: 'assets/Chicken Shawarma Plate.png', category: 'Plates', restaurantId: 'r108' },
+//   { id: 'd054', name: 'Falafel Wrap', desc: 'Chickpea fritters, vegetables in a pita.', price: 12.00, imgUrl: 'assets/Falafel Wrap.png', category: 'Wraps', restaurantId: 'r108' },
+//   { id: 'd055', name: 'Hummus Plate', desc: 'Creamy hummus with olive oil and warm pita.', price: 8.50, imgUrl: 'assets/Hummus Plate.png', category: 'Appetizers', restaurantId: 'r108' },
+//   { id: 'd056', name: 'Greek Salad', desc: 'Cucumbers, tomatoes, olives, feta.', price: 11.00, imgUrl: 'assets/Greek Salad.png', category: 'Salads', restaurantId: 'r108' },
+
+//   // Cafe Latte (r109)
+//   { id: 'd057', name: 'Cappuccino', desc: 'Espresso with foamed milk.', price: 4.50, imgUrl: 'assets/Cappuccino.png', category: 'Coffee', restaurantId: 'r109' },
+//   { id: 'd058', name: 'Croissant', desc: 'Buttery, flaky pastry.', price: 3.50, imgUrl: 'assets/Croissant.png', category: 'Pastries', restaurantId: 'r109' },
+//   { id: 'd059', name: 'Iced Mocha', desc: 'Chocolate, espresso, milk over ice.', price: 5.50, imgUrl: 'assets/Iced Mocha.png', category: 'Coffee', restaurantId: 'r109' },
+//   { id: 'd060', name: 'Almond Biscotti', desc: 'Twice-baked almond cookies.', price: 4.00, imgUrl: 'assets/Almond Biscotti.png', category: 'Pastries', restaurantId: 'r109' },
+  
+//   // Asian Fusion Bowl (r110)
+//   { id: 'd061', name: 'Spicy Salmon Poke Bowl', desc: 'Salmon, rice, avocado, spicy mayo.', price: 17.50, imgUrl: 'assets/Spicy Salmon Poke Bowl.png', category: 'Bowls', restaurantId: 'r110' },
+//   { id: 'd062', name: 'Kimchi Fried Rice', desc: 'Kimchi, rice, egg, and vegetables wok-tossed.', price: 15.00, imgUrl: 'assets/Kimchi Fried Rice.png', category: 'Rice', restaurantId: 'r110' },
+//   { id: 'd063', name: 'Gyoza (6 pcs)', desc: 'Pan-fried Japanese pork dumplings.', price: 8.50, imgUrl: 'assets/Gyoza.png', category: 'Appetizers', restaurantId: 'r110' },
+//   { id: 'd064', name: 'Boba Tea', desc: 'Milk tea with chewy tapioca pearls.', price: 6.00, imgUrl: 'assets/Boba Tea.png', category: 'Beverages', restaurantId: 'r110' },
+
+//   // Donut Heaven (r111)
+//   { id: 'd065', name: 'Glazed Donut', desc: 'Classic raised donut with sweet glaze.', price: 2.50, imgUrl: 'assets/Glazed Donut.png', category: 'Donuts', restaurantId: 'r111' },
+//   { id: 'd066', name: 'Chocolate Frosted', desc: 'Donut with thick chocolate frosting.', price: 3.00, imgUrl: 'assets/Chocolate Frosted.png', category: 'Donuts', restaurantId: 'r111' },
+//   { id: 'd067', name: 'Jelly Filled', desc: 'Donut filled with raspberry jelly.', price: 3.50, imgUrl: 'assets/Jelly Filled.png', category: 'Donuts', restaurantId: 'r111' },
+//   { id: 'd068', name: 'Coffee (Small)', desc: 'Freshly brewed hot coffee.', price: 2.00, imgUrl: 'assets/Coffee.png', category: 'Beverages', restaurantId: 'r111' },
+
+//   // Healthy Hues (Salads) (r112)
+//   { id: 'd069', name: 'Cobb Salad', desc: 'Chicken, bacon, egg, avocado, blue cheese.', price: 16.00, imgUrl: 'assets/Cobb Salad.png', category: 'Salads', restaurantId: 'r112' },
+//   { id: 'd070', name: 'Chicken Avo Wrap', desc: 'Grilled chicken and avocado in a wheat wrap.', price: 14.50, imgUrl: 'assets/Chicken Avo Wrap.png', category: 'Wraps', restaurantId: 'r112' },
+//   { id: 'd071', name: 'Protein Bowl', desc: 'Quinoa, salmon, sweet potato, greens.', price: 18.50, imgUrl: 'assets/Protein Bowl.png', category: 'Bowls', restaurantId: 'r112' },
+//   { id: 'd072', name: 'Fresh Juice', desc: 'Freshly squeezed orange and carrot juice.', price: 6.00, imgUrl: 'assets/Fresh Juice.png', category: 'Beverages', restaurantId: 'r112' },
+
+//   // Even more dishes for diversity
+//   { id: 'd073', name: 'Vegan Pad Thai', desc: 'Rice noodles with peanuts, sprouts, and lime.', price: 15.00, imgUrl: 'assets/Vegan Pad Thai.png', category: 'Noodles', restaurantId: 'r103' },
+//   { id: 'd074', name: 'Double Cheese Pizza', desc: 'Extra mozzarella and parmesan on classic base.', price: 17.50, imgUrl: 'assets/Double Cheese Pizza.png', category: 'Pizzas', restaurantId: 'r102' },
+//   { id: 'd075', name: 'Spicy Chicken Wings (6pc)', desc: 'Crispy fried wings tossed in buffalo sauce.', price: 11.00, imgUrl: 'assets/Spicy Chicken Wings.png', category: 'Appetizers', restaurantId: 'r105' },
+//   { id: 'd076', name: 'Lamb Seekh Kebab', desc: 'Ground lamb skewers grilled in tandoor.', price: 14.50, imgUrl: 'assets/kebab.png', category: 'Appetizers', restaurantId: 'r101' },
+//   { id: 'd077', name: 'Shrimp Tempura (4pc)', desc: 'Lightly battered and fried shrimp.', price: 10.00, imgUrl: 'assets/Shrimp Tempura.png', category: 'Appetizers', restaurantId: 'r106' },
+//   { id: 'd078', name: 'Fish Tacos (2 pcs)', desc: 'Battered fish, slaw, chipotle cream.', price: 13.00, imgUrl: 'assets/Fish Tacos.png', category: 'Tacos', restaurantId: 'r107' },
+//   { id: 'd079', name: 'Baklava (3 pcs)', desc: 'Layered pastry filled with nuts and syrup.', price: 7.00, imgUrl: 'assets/Baklava.png', category: 'Desserts', restaurantId: 'r108' },
+//   { id: 'd080', name: 'Pistachio Gelato', desc: 'Rich Italian pistachio ice cream.', price: 8.00, imgUrl: 'assets/Pistachio Gelato.png', category: 'Desserts', restaurantId: 'r102' },
+//   { id: 'd081', name: 'Vegetable Chow Mein', desc: 'Stir-fried noodles with crisp vegetables.', price: 12.00, imgUrl: 'assets/Vegetable Chow Mein.png', category: 'Noodles', restaurantId: 'r104' },
+//   { id: 'd082', name: 'Fresh Fruit Smoothie', desc: 'Mixed berries, banana, and water blend.', price: 6.50, imgUrl: 'assets/Fresh Fruit Smoothie.png', category: 'Beverages', restaurantId: 'r112' },
+//   { id: 'd083', name: 'Double Espresso', desc: 'Strong, concentrated coffee shot.', price: 3.50, imgUrl: 'assets/Double Espresso.png', category: 'Coffee', restaurantId: 'r109' },
+//   { id: 'd084', name: 'Chocolate Dipped Donut', desc: 'Classic donut dipped in dark chocolate.', price: 3.50, imgUrl: 'assets/Chocolate Dipped Donut.png', category: 'Donuts', restaurantId: 'r111' },
+
+//   // More dishes to reach over 70
+//   { id: 'd085', name: 'Spicy Beef Burrito', desc: 'Large burrito with spicy shredded beef.', price: 15.00, imgUrl: 'assets/Spicy Beef Burrito.png', category: 'Burritos', restaurantId: 'r107' },
+//   { id: 'd086', name: 'Chicken Skewers (2 pc)', desc: 'Grilled chicken skewers with sauce.', price: 12.00, imgUrl: 'assets/Chicken Skewers.png', category: 'Plates', restaurantId: 'r108' },
+//   { id: 'd087', name: 'Veggie Pizza Slice', desc: 'Single slice of veggie pizza.', price: 4.00, imgUrl: 'assets/Veggie Pizza Slice.png', category: 'Pizzas', restaurantId: 'r102' },
+//   { id: 'd088', name: 'Palak Paneer', desc: 'Spinach and cottage cheese curry.', price: 14.99, imgUrl: 'assets/Palak Paneer.png', category: 'Mains', restaurantId: 'r101' },
+//   { id: 'd089', name: 'Sweet & Sour Pork', desc: 'Crispy pork pieces in classic sweet and sour sauce.', price: 17.50, imgUrl: 'assets/Sweet & Sour Pork.png', category: 'Mains', restaurantId: 'r104' },
+//   { id: 'd090', name: 'Chocolate Milkshake', desc: 'Thick, creamy chocolate milkshake.', price: 7.00, imgUrl: 'assets/Chocolate Milkshake.png', category: 'Beverages', restaurantId: 'r105' },
+// ];
+
+// --- MOCK DISH DATA (OVER 70 ITEMS) WITH FULL GITHUB URLS ---
+const BASE_URL = 'https://raw.githubusercontent.com/Yatishydv/Foodzy/main/assets/';
+
 const MOCK_DISHES = [
   // The Curry House (Indian) - 10 dishes (r101)
-  { id: 'd001', name: 'Butter Chicken', desc: 'Creamy tomato-based curry, rich in flavor.', price: 15.99, imgUrl: 'assets/butterchicken.png', category: 'Mains', restaurantId: 'r101' },
-  { id: 'd002', name: 'Garlic Naan', desc: 'Leavened bread with garlic, brushed with butter.', price: 3.99, imgUrl: 'assets/naan.png', category: 'Breads', restaurantId: 'r101' },
-  { id: 'd003', name: 'Chicken Biryani', desc: 'Aromatic basmati rice cooked with spiced chicken.', price: 18.50, imgUrl: 'assets/cknbiryani.png', category: 'Rice & Biryani', restaurantId: 'r101' },
-  { id: 'd004', name: 'Aloo Gobi', desc: 'Potatoes and cauliflower sautéed with spices.', price: 12.00, imgUrl: 'assets/aalogobhi.png', category: 'Mains', restaurantId: 'r101' },
-  { id: 'd005', name: 'Tandoori Roti', desc: 'Whole wheat bread baked in a clay oven.', price: 2.50, imgUrl: 'assets/tandoriroti.png', category: 'Breads', restaurantId: 'r101' },
-  { id: 'd006', name: 'Paneer Tikka Masala', desc: 'Cubes of cottage cheese in a rich gravy.', price: 16.99, imgUrl: 'assets/paneer-tikka-masa.png', category: 'Mains', restaurantId: 'r101' },
-  { id: 'd007', name: 'Dal Makhani', desc: 'Black lentils and kidney beans cooked slowly.', price: 13.50, imgUrl: 'assets/dalmakhani.png', category: 'Mains', restaurantId: 'r101' },
-  { id: 'd008', name: 'Mango Lassi', desc: 'Sweet yogurt drink blended with fresh mango.', price: 5.00, imgUrl: 'assets/mangolassi.png', category: 'Beverages', restaurantId: 'r101' },
-  { id: 'd009', name: 'Jeera Rice', desc: 'Basmati rice tempered with cumin seeds.', price: 6.50, imgUrl: 'assets/jeerarice.jpeg', category: 'Rice & Biryani', restaurantId: 'r101' },
-  { id: 'd010', name: 'Samosa (2 pcs)', desc: 'Crispy fried pastries filled with spiced potatoes.', price: 4.50, imgUrl: 'assets/samosa.png', category: 'Appetizers', restaurantId: 'r101' },
+  { id: 'd001', name: 'Butter Chicken', desc: 'Creamy tomato-based curry, rich in flavor.', price: 15.99, imgUrl: BASE_URL + 'butterchicken.png', category: 'Mains', restaurantId: 'r101' },
+  { id: 'd002', name: 'Garlic Naan', desc: 'Leavened bread with garlic, brushed with butter.', price: 3.99, imgUrl: BASE_URL + 'naan.png', category: 'Breads', restaurantId: 'r101' },
+  { id: 'd003', name: 'Chicken Biryani', desc: 'Aromatic basmati rice cooked with spiced chicken.', price: 18.50, imgUrl: BASE_URL + 'cknbiryani.png', category: 'Rice & Biryani', restaurantId: 'r101' },
+  { id: 'd004', name: 'Aloo Gobi', desc: 'Potatoes and cauliflower sautéed with spices.', price: 12.00, imgUrl: BASE_URL + 'aalogobhi.png', category: 'Mains', restaurantId: 'r101' },
+  { id: 'd005', name: 'Tandoori Roti', desc: 'Whole wheat bread baked in a clay oven.', price: 2.50, imgUrl: BASE_URL + 'tandoriroti.png', category: 'Breads', restaurantId: 'r101' },
+  { id: 'd006', name: 'Paneer Tikka Masala', desc: 'Cubes of cottage cheese in a rich gravy.', price: 16.99, imgUrl: BASE_URL + 'paneer-tikka-masa.png', category: 'Mains', restaurantId: 'r101' },
+  { id: 'd007', name: 'Dal Makhani', desc: 'Black lentils and kidney beans cooked slowly.', price: 13.50, imgUrl: BASE_URL + 'dalmakhani.png', category: 'Mains', restaurantId: 'r101' },
+  { id: 'd008', name: 'Mango Lassi', desc: 'Sweet yogurt drink blended with fresh mango.', price: 5.00, imgUrl: BASE_URL + 'mangolassi.png', category: 'Beverages', restaurantId: 'r101' },
+  { id: 'd009', name: 'Jeera Rice', desc: 'Basmati rice tempered with cumin seeds.', price: 6.50, imgUrl: BASE_URL + 'jeerarice.jpeg', category: 'Rice & Biryani', restaurantId: 'r101' },
+  { id: 'd010', name: 'Samosa (2 pcs)', desc: 'Crispy fried pastries filled with spiced potatoes.', price: 4.50, imgUrl: BASE_URL + 'samosa.png', category: 'Appetizers', restaurantId: 'r101' },
 
   // Pizza Planet (Italian) - 10 dishes (r102)
-  { id: 'd011', name: 'Pepperoni Pizza', desc: 'Classic pepperoni and mozzarella on marinara.', price: 18.50, imgUrl: 'assets/PepperoniPizza.png', category: 'Pizzas', restaurantId: 'r102' },
-  { id: 'd012', name: 'Caesar Salad', desc: 'Crisp romaine, croutons, and creamy dressing.', price: 8.00, imgUrl: 'assets/CaesarSalad.png', category: 'Salads', restaurantId: 'r102' },
-  { id: 'd013', name: 'Margherita Pizza', desc: 'Fresh mozzarella, basil, and tomato sauce.', price: 16.00, imgUrl: 'assets/Margherita Pizza.png', category: 'Pizzas', restaurantId: 'r102' },
-  { id: 'd014', name: 'Spaghetti Bolognese', desc: 'Beef ragu simmered for hours over spaghetti.', price: 17.50, imgUrl: 'assets/Spaghetti Bolognese.png', category: 'Pasta', restaurantId: 'r102' },
-  { id: 'd015', name: 'Garlic Knots (6 pcs)', desc: 'Baked dough tied in knots, coated in garlic butter.', price: 6.50, imgUrl: 'assets/Garlic Knots.png', category: 'Sides', restaurantId: 'r102' },
-  { id: 'd016', name: 'Tiramisu', desc: 'Layers of coffee-soaked ladyfingers and mascarpone.', price: 9.00, imgUrl: 'assets/Tiramisu.png', category: 'Desserts', restaurantId: 'r102' },
-  { id: 'd017', name: 'Veggie Supreme Pizza', desc: 'Bell peppers, olives, mushrooms, and onions.', price: 19.50, imgUrl: 'assets/Veggie Supreme Pizza.png', category: 'Pizzas', restaurantId: 'r102' },
-  { id: 'd018', name: 'Fettuccine Alfredo', desc: 'Fettuccine pasta tossed in a creamy parmesan sauce.', price: 16.50, imgUrl: 'assets/Fettuccine Alfredo.png', category: 'Pasta', restaurantId: 'r102' },
-  { id: 'd019', name: 'Minestrone Soup', desc: 'Hearty vegetable soup with pasta and beans.', price: 7.00, imgUrl: 'assets/Minestrone Soup.png', category: 'Appetizers', restaurantId: 'r102' },
-  { id: 'd020', name: 'Soda (Can)', desc: 'Assorted canned sodas.', price: 2.00, imgUrl: 'assets/soda.png', category: 'Beverages', restaurantId: 'r102' },
+  { id: 'd011', name: 'Pepperoni Pizza', desc: 'Classic pepperoni and mozzarella on marinara.', price: 18.50, imgUrl: BASE_URL + 'PepperoniPizza.png', category: 'Pizzas', restaurantId: 'r102' },
+  { id: 'd012', name: 'Caesar Salad', desc: 'Crisp romaine, croutons, and creamy dressing.', price: 8.00, imgUrl: BASE_URL + 'CaesarSalad.png', category: 'Salads', restaurantId: 'r102' },
+  { id: 'd013', name: 'Margherita Pizza', desc: 'Fresh mozzarella, basil, and tomato sauce.', price: 16.00, imgUrl: BASE_URL + 'Margherita%20Pizza.png', category: 'Pizzas', restaurantId: 'r102' },
+  { id: 'd014', name: 'Spaghetti Bolognese', desc: 'Beef ragu simmered for hours over spaghetti.', price: 17.50, imgUrl: BASE_URL + 'Spaghetti%20Bolognese.png', category: 'Pasta', restaurantId: 'r102' },
+  { id: 'd015', name: 'Garlic Knots (6 pcs)', desc: 'Baked dough tied in knots, coated in garlic butter.', price: 6.50, imgUrl: BASE_URL + 'Garlic%20Knots.png', category: 'Sides', restaurantId: 'r102' },
+  { id: 'd016', name: 'Tiramisu', desc: 'Layers of coffee-soaked ladyfingers and mascarpone.', price: 9.00, imgUrl: BASE_URL + 'Tiramisu.png', category: 'Desserts', restaurantId: 'r102' },
+  { id: 'd017', name: 'Veggie Supreme Pizza', desc: 'Bell peppers, olives, mushrooms, and onions.', price: 19.50, imgUrl: BASE_URL + 'Veggie%20Supreme%20Pizza.png', category: 'Pizzas', restaurantId: 'r102' },
+  { id: 'd018', name: 'Fettuccine Alfredo', desc: 'Fettuccine pasta tossed in a creamy parmesan sauce.', price: 16.50, imgUrl: BASE_URL + 'Fettuccine%20Alfredo.png', category: 'Pasta', restaurantId: 'r102' },
+  { id: 'd019', name: 'Minestrone Soup', desc: 'Hearty vegetable soup with pasta and beans.', price: 7.00, imgUrl: BASE_URL + 'Minestrone%20Soup.png', category: 'Appetizers', restaurantId: 'r102' },
+  { id: 'd020', name: 'Soda (Can)', desc: 'Assorted canned sodas.', price: 2.00, imgUrl: BASE_URL + 'soda.png', category: 'Beverages', restaurantId: 'r102' },
 
   // Veggie Delights (Vegan) - 10 dishes (r103)
-  { id: 'd021', name: 'Tofu Stir-fry', desc: 'Wok-tossed tofu with seasonal greens and ginger sauce.', price: 14.50, imgUrl: 'assets/Tofu Stir-fry.png', category: 'Mains', restaurantId: 'r103' },
-  { id: 'd022', name: 'Avocado Toast', desc: 'Sourdough toast topped with smashed avocado.', price: 7.00, imgUrl: 'assets/Avocado Toast.png', category: 'Breakfast', restaurantId: 'r103' },
-  { id: 'd023', name: 'Lentil Soup', desc: 'Warm and comforting soup made with red lentils.', price: 6.00, imgUrl: 'assets/Lentil Soup.png', category: 'Appetizers', restaurantId: 'r103' },
-  { id: 'd024', name: 'Quinoa Bowl', desc: 'Quinoa base with roasted vegetables and lemon vinaigrette.', price: 13.00, imgUrl: 'assets/Quinoa Bowl.png', category: 'Bowls', restaurantId: 'r103' },
-  { id: 'd025', name: 'Vegan Wrap', desc: 'Tortilla filled with hummus, falafel, and crisp veggies.', price: 11.50, imgUrl: 'assets/Vegan Wrap.png', category: 'Sandwiches & Wraps', restaurantId: 'r103' },
-  { id: 'd026', name: 'Green Smoothie', desc: 'Spinach, banana, and almond milk blended smoothly.', price: 7.50, imgUrl: 'assets/Green Smoothie.png', category: 'Beverages', restaurantId: 'r103' },
-  { id: 'd027', name: 'Sweet Potato Fries', desc: 'Crispy sweet potato fries served with vegan aioli.', price: 5.50, imgUrl: 'assets/Sweet Potato Fries.png', category: 'Sides', restaurantId: 'r103' },
-  { id: 'd028', name: 'Black Bean Burger', desc: 'House-made black bean patty on a whole wheat bun.', price: 14.00, imgUrl: 'assets/Black Bean Burger.png', category: 'Mains', restaurantId: 'r103' },
-  { id: 'd029', name: 'Chia Seed Pudding', desc: 'Overnight chia seeds soaked in coconut milk with berries.', price: 8.50, imgUrl: 'assets/Chia Seed Pudding.png', category: 'Desserts', restaurantId: 'r103' },
-  { id: 'd030', name: 'Kale Caesar Salad (V)', desc: 'Kale and romaine with a creamy cashew-based dressing.', price: 12.50, imgUrl: 'assets/Kale Caesar Salad (V).png', category: 'Salads', restaurantId: 'r103' },
+  { id: 'd021', name: 'Tofu Stir-fry', desc: 'Wok-tossed tofu with seasonal greens and ginger sauce.', price: 14.50, imgUrl: BASE_URL + 'Tofu%20Stir-fry.png', category: 'Mains', restaurantId: 'r103' },
+  { id: 'd022', name: 'Avocado Toast', desc: 'Sourdough toast topped with smashed avocado.', price: 7.00, imgUrl: BASE_URL + 'Avocado%20Toast.png', category: 'Breakfast', restaurantId: 'r103' },
+  { id: 'd023', name: 'Lentil Soup', desc: 'Warm and comforting soup made with red lentils.', price: 6.00, imgUrl: BASE_URL + 'Lentil%20Soup.png', category: 'Appetizers', restaurantId: 'r103' },
+  { id: 'd024', name: 'Quinoa Bowl', desc: 'Quinoa base with roasted vegetables and lemon vinaigrette.', price: 13.00, imgUrl: BASE_URL + 'Quinoa%20Bowl.png', category: 'Bowls', restaurantId: 'r103' },
+  { id: 'd025', name: 'Vegan Wrap', desc: 'Tortilla filled with hummus, falafel, and crisp veggies.', price: 11.50, imgUrl: BASE_URL + 'Vegan%20Wrap.png', category: 'Sandwiches & Wraps', restaurantId: 'r103' },
+  { id: 'd026', name: 'Green Smoothie', desc: 'Spinach, banana, and almond milk blended smoothly.', price: 7.50, imgUrl: BASE_URL + 'Green%20Smoothie.png', category: 'Beverages', restaurantId: 'r103' },
+  { id: 'd027', name: 'Sweet Potato Fries', desc: 'Crispy sweet potato fries served with vegan aioli.', price: 5.50, imgUrl: BASE_URL + 'Sweet%20Potato%20Fries.png', category: 'Sides', restaurantId: 'r103' },
+  { id: 'd028', name: 'Black Bean Burger', desc: 'House-made black bean patty on a whole wheat bun.', price: 14.00, imgUrl: BASE_URL + 'Black%20Bean%20Burger.png', category: 'Mains', restaurantId: 'r103' },
+  { id: 'd029', name: 'Chia Seed Pudding', desc: 'Overnight chia seeds soaked in coconut milk with berries.', price: 8.50, imgUrl: BASE_URL + 'Chia%20Seed%20Pudding.png', category: 'Desserts', restaurantId: 'r103' },
+  { id: 'd030', name: 'Kale Caesar Salad (V)', desc: 'Kale and romaine with a creamy cashew-based dressing.', price: 12.50, imgUrl: BASE_URL + 'Kale%20Caesar%20Salad%20(V).png', category: 'Salads', restaurantId: 'r103' },
 
   // Wok Master (Chinese) - 10 dishes (r104)
-  { id: 'd031', name: 'Chilli Chicken', desc: 'Spicy crispy chicken with onions and peppers.', price: 16.99, imgUrl: 'assets/Chilli Chicken.png', category: 'Mains', restaurantId: 'r104' },
-  { id: 'd032', name: 'Veg Hakka Noodles', desc: 'Hakka noodles tossed with vegetables.', price: 10.00, imgUrl: 'assets/Veg Hakka Noodles.png', category: 'Noodles', restaurantId: 'r104' },
-  { id: 'd033', name: 'Veg Spring Rolls (4 pcs)', desc: 'Crispy rolls filled with shredded cabbage and carrots.', price: 5.50, imgUrl: 'assets/Veg Spring Rolls.png', category: 'Appetizers', restaurantId: 'r104' },
-  { id: 'd034', name: 'Chicken Fried Rice', desc: 'Wok-tossed rice with diced chicken and egg.', price: 14.00, imgUrl: 'assets/Chicken Fried Rice.png', category: 'Rice', restaurantId: 'r104' },
-  { id: 'd035', name: 'Kung Pao Shrimp', desc: 'Spicy stir-fry with shrimp, peanuts, and vegetables.', price: 19.99, imgUrl: 'assets/Kung Pao Shrimp.png', category: 'Mains', restaurantId: 'r104' },
-  { id: 'd036', name: 'Hot & Sour Soup', desc: 'Spicy and tangy thick soup.', price: 6.00, imgUrl: 'assets/Hot & Sour Soup.png', category: 'Soup', restaurantId: 'r104' },
-  { id: 'd037', name: 'Schezwan Noodles (Veg)', desc: 'Spicy noodles with Szechuan sauce.', price: 11.50, imgUrl: 'assets/Schezwan Noodles (Veg).png', category: 'Noodles', restaurantId: 'r104' },
-  { id: 'd038', name: 'Pork Dumplings (Steamed)', desc: 'Delicate steamed dumplings with savory pork filling.', price: 8.00, imgUrl: 'assets/Pork Dumplings (Steamed).png', category: 'Appetizers', restaurantId: 'r104' },
-  { id: 'd039', name: 'Manchurian Veggie Balls', desc: 'Fried vegetable balls tossed in a rich Manchurian sauce.', price: 13.00, imgUrl: 'assets/Manchurian Veggie Balls.png', category: 'Mains', restaurantId: 'r104' },
-  { id: 'd040', name: 'Fortune Cookies (3 pcs)', desc: 'Crispy cookies with fun fortunes inside.', price: 3.00, imgUrl: 'assets/Fortune Cookies.png', category: 'Desserts', restaurantId: 'r104' },
-  
+  { id: 'd031', name: 'Chilli Chicken', desc: 'Spicy crispy chicken with onions and peppers.', price: 16.99, imgUrl: BASE_URL + 'Chilli%20Chicken.png', category: 'Mains', restaurantId: 'r104' },
+  { id: 'd032', name: 'Veg Hakka Noodles', desc: 'Hakka noodles tossed with vegetables.', price: 10.00, imgUrl: BASE_URL + 'Veg%20Hakka%20Noodles.png', category: 'Noodles', restaurantId: 'r104' },
+  { id: 'd033', name: 'Veg Spring Rolls (4 pcs)', desc: 'Crispy rolls filled with shredded cabbage and carrots.', price: 5.50, imgUrl: BASE_URL + 'Veg%20Spring%20Rolls.png', category: 'Appetizers', restaurantId: 'r104' },
+  { id: 'd034', name: 'Chicken Fried Rice', desc: 'Wok-tossed rice with diced chicken and egg.', price: 14.00, imgUrl: BASE_URL + 'Chicken%20Fried%20Rice.png', category: 'Rice', restaurantId: 'r104' },
+  { id: 'd035', name: 'Kung Pao Shrimp', desc: 'Spicy stir-fry with shrimp, peanuts, and vegetables.', price: 19.99, imgUrl: BASE_URL + 'Kung%20Pao%20Shrimp.png', category: 'Mains', restaurantId: 'r104' },
+  { id: 'd036', name: 'Hot & Sour Soup', desc: 'Spicy and tangy thick soup.', price: 6.00, imgUrl: BASE_URL + 'Hot%20&%20Sour%20Soup.png', category: 'Soup', restaurantId: 'r104' },
+  { id: 'd037', name: 'Schezwan Noodles (Veg)', desc: 'Spicy noodles with Szechuan sauce.', price: 11.50, imgUrl: BASE_URL + 'Schezwan%20Noodles%20(Veg).png', category: 'Noodles', restaurantId: 'r104' },
+  { id: 'd038', name: 'Pork Dumplings (Steamed)', desc: 'Delicate steamed dumplings with savory pork filling.', price: 8.00, imgUrl: BASE_URL + 'Pork%20Dumplings%20(Steamed).png', category: 'Appetizers', restaurantId: 'r104' },
+  { id: 'd039', name: 'Manchurian Veggie Balls', desc: 'Fried vegetable balls tossed in a rich Manchurian sauce.', price: 13.00, imgUrl: BASE_URL + 'Manchurian%20Veggie%20Balls.png', category: 'Mains', restaurantId: 'r104' },
+  { id: 'd040', name: 'Fortune Cookies (3 pcs)', desc: 'Crispy cookies with fun fortunes inside.', price: 3.00, imgUrl: BASE_URL + 'Fortune%20Cookies.png', category: 'Desserts', restaurantId: 'r104' },
+
   // The Burger Stop (r105)
-  { id: 'd041', name: 'Classic Cheeseburger', desc: 'Beef patty, cheddar, lettuce, tomato, pickle.', price: 12.00, imgUrl: 'assets/Classic Cheeseburger.png', category: 'Burgers', restaurantId: 'r105' },
-  { id: 'd042', name: 'Fries', desc: 'Crispy golden potato fries.', price: 4.00, imgUrl: 'assets/Fries.png', category: 'Sides', restaurantId: 'r105' },
-  { id: 'd043', name: 'Veggie Burger', desc: 'Black bean patty with aioli.', price: 11.50, imgUrl: 'assets/Veggie Burger.png', category: 'Burgers', restaurantId: 'r105' },
-  { id: 'd044', name: 'Onion Rings', desc: 'Thick cut onion rings.', price: 5.50, imgUrl: 'assets/Onion Rings.png', category: 'Sides', restaurantId: 'r105' },
+  { id: 'd041', name: 'Classic Cheeseburger', desc: 'Beef patty, cheddar, lettuce, tomato, pickle.', price: 12.00, imgUrl: BASE_URL + 'Classic%20Cheeseburger.png', category: 'Burgers', restaurantId: 'r105' },
+  { id: 'd042', name: 'Fries', desc: 'Crispy golden potato fries.', price: 4.00, imgUrl: BASE_URL + 'Fries.png', category: 'Sides', restaurantId: 'r105' },
+  { id: 'd043', name: 'Veggie Burger', desc: 'Black bean patty with aioli.', price: 11.50, imgUrl: BASE_URL + 'Veggie%20Burger.png', category: 'Burgers', restaurantId: 'r105' },
+  { id: 'd044', name: 'Onion Rings', desc: 'Thick cut onion rings.', price: 5.50, imgUrl: BASE_URL + 'Onion%20Rings.png', category: 'Sides', restaurantId: 'r105' },
 
   // Sushi Zen (r106)
-  { id: 'd045', name: 'California Roll', desc: 'Crab, avocado, cucumber.', price: 11.00, imgUrl: 'assets/California Roll.png', category: 'Rolls', restaurantId: 'r106' },
-  { id: 'd046', name: 'Spicy Tuna Roll', desc: 'Tuna, spicy mayo, sesame.', price: 13.00, imgUrl: 'assets/Spicy Tuna Roll.png', category: 'Rolls', restaurantId: 'r106' },
-  { id: 'd047', name: 'Salmon Nigiri (2 pcs)', desc: 'Fresh salmon on rice.', price: 9.00, imgUrl: 'assets/Salmon Nigiri.png', category: 'Nigiri', restaurantId: 'r106' },
-  { id: 'd048', name: 'Miso Soup', desc: 'Soybean paste soup with tofu.', price: 4.00, imgUrl: 'assets/Miso Soup.png', category: 'Soup', restaurantId: 'r106' },
+  { id: 'd045', name: 'California Roll', desc: 'Crab, avocado, cucumber.', price: 11.00, imgUrl: BASE_URL + 'California%20Roll.png', category: 'Rolls', restaurantId: 'r106' },
+  { id: 'd046', name: 'Spicy Tuna Roll', desc: 'Tuna, spicy mayo, sesame.', price: 13.00, imgUrl: BASE_URL + 'Spicy%20Tuna%20Roll.png', category: 'Rolls', restaurantId: 'r106' },
+  { id: 'd047', name: 'Salmon Nigiri (2 pcs)', desc: 'Fresh salmon on rice.', price: 9.00, imgUrl: BASE_URL + 'Salmon%20Nigiri.png', category: 'Nigiri', restaurantId: 'r106' },
+  { id: 'd048', name: 'Miso Soup', desc: 'Soybean paste soup with tofu.', price: 4.00, imgUrl: BASE_URL + 'Miso%20Soup.png', category: 'Soup', restaurantId: 'r106' },
 
   // Taco Fiesta (Mexican) (r107)
-  { id: 'd049', name: 'Beef Tacos (2 pcs)', desc: 'Ground beef, salsa, cheese, corn tortilla.', price: 10.00, imgUrl: 'assets/Beef Tacos.png', category: 'Tacos', restaurantId: 'r107' },
-  { id: 'd050', name: 'Chicken Burrito', desc: 'Rice, beans, chicken, sour cream, wrapped.', price: 14.00, imgUrl: 'assets/Chicken Burrito.png', category: 'Burritos', restaurantId: 'r107' },
-  { id: 'd051', name: 'Guacamole & Chips', desc: 'Fresh avocado dip with corn chips.', price: 9.00, imgUrl: 'assets/Guacamole & Chips.png', category: 'Appetizers', restaurantId: 'r107' },
-  { id: 'd052', name: 'Churros', desc: 'Cinnamon sugar pastry sticks with dipping sauce.', price: 6.50, imgUrl: 'assets/Churros.png', category: 'Desserts', restaurantId: 'r107' },
+  { id: 'd049', name: 'Beef Tacos (2 pcs)', desc: 'Ground beef, salsa, cheese, corn tortilla.', price: 10.00, imgUrl: BASE_URL + 'Beef%20Tacos.png', category: 'Tacos', restaurantId: 'r107' },
+  { id: 'd050', name: 'Chicken Burrito', desc: 'Rice, beans, chicken, sour cream, wrapped.', price: 14.00, imgUrl: BASE_URL + 'Chicken%20Burrito.png', category: 'Burritos', restaurantId: 'r107' },
+  { id: 'd051', name: 'Guacamole & Chips', desc: 'Fresh avocado dip with corn chips.', price: 9.00, imgUrl: BASE_URL + 'Guacamole%20&%20Chips.png', category: 'Appetizers', restaurantId: 'r107' },
+  { id: 'd052', name: 'Churros', desc: 'Cinnamon sugar pastry sticks with dipping sauce.', price: 6.50, imgUrl: BASE_URL + 'Churros.png', category: 'Desserts', restaurantId: 'r107' },
 
   // Mediterranean Grill (r108)
-  { id: 'd053', name: 'Chicken Shawarma Plate', desc: 'Marinated chicken, rice, salad, hummus.', price: 18.00, imgUrl: 'assets/Chicken Shawarma Plate.png', category: 'Plates', restaurantId: 'r108' },
-  { id: 'd054', name: 'Falafel Wrap', desc: 'Chickpea fritters, vegetables in a pita.', price: 12.00, imgUrl: 'assets/Falafel Wrap.png', category: 'Wraps', restaurantId: 'r108' },
-  { id: 'd055', name: 'Hummus Plate', desc: 'Creamy hummus with olive oil and warm pita.', price: 8.50, imgUrl: 'assets/Hummus Plate.png', category: 'Appetizers', restaurantId: 'r108' },
-  { id: 'd056', name: 'Greek Salad', desc: 'Cucumbers, tomatoes, olives, feta.', price: 11.00, imgUrl: 'assets/Greek Salad.png', category: 'Salads', restaurantId: 'r108' },
+  { id: 'd053', name: 'Chicken Shawarma Plate', desc: 'Marinated chicken, rice, salad, hummus.', price: 18.00, imgUrl: BASE_URL + 'Chicken%20Shawarma%20Plate.png', category: 'Plates', restaurantId: 'r108' },
+  { id: 'd054', name: 'Falafel Wrap', desc: 'Chickpea fritters, vegetables in a pita.', price: 12.00, imgUrl: BASE_URL + 'Falafel%20Wrap.png', category: 'Wraps', restaurantId: 'r108' },
+  { id: 'd055', name: 'Hummus Plate', desc: 'Creamy hummus with olive oil and warm pita.', price: 8.50, imgUrl: BASE_URL + 'Hummus%20Plate.png', category: 'Appetizers', restaurantId: 'r108' },
+  { id: 'd056', name: 'Greek Salad', desc: 'Cucumbers, tomatoes, olives, feta.', price: 11.00, imgUrl: BASE_URL + 'Greek%20Salad.png', category: 'Salads', restaurantId: 'r108' },
 
   // Cafe Latte (r109)
-  { id: 'd057', name: 'Cappuccino', desc: 'Espresso with foamed milk.', price: 4.50, imgUrl: 'assets/Cappuccino.png', category: 'Coffee', restaurantId: 'r109' },
-  { id: 'd058', name: 'Croissant', desc: 'Buttery, flaky pastry.', price: 3.50, imgUrl: 'assets/Croissant.png', category: 'Pastries', restaurantId: 'r109' },
-  { id: 'd059', name: 'Iced Mocha', desc: 'Chocolate, espresso, milk over ice.', price: 5.50, imgUrl: 'assets/Iced Mocha.png', category: 'Coffee', restaurantId: 'r109' },
-  { id: 'd060', name: 'Almond Biscotti', desc: 'Twice-baked almond cookies.', price: 4.00, imgUrl: 'assets/Almond Biscotti.png', category: 'Pastries', restaurantId: 'r109' },
-  
+  { id: 'd057', name: 'Cappuccino', desc: 'Espresso with foamed milk.', price: 4.50, imgUrl: BASE_URL + 'Cappuccino.png', category: 'Coffee', restaurantId: 'r109' },
+  { id: 'd058', name: 'Croissant', desc: 'Buttery, flaky pastry.', price: 3.50, imgUrl: BASE_URL + 'Croissant.png', category: 'Pastries', restaurantId: 'r109' },
+  { id: 'd059', name: 'Iced Mocha', desc: 'Chocolate, espresso, milk over ice.', price: 5.50, imgUrl: BASE_URL + 'Iced%20Mocha.png', category: 'Coffee', restaurantId: 'r109' },
+  { id: 'd060', name: 'Almond Biscotti', desc: 'Twice-baked almond cookies.', price: 4.00, imgUrl: BASE_URL + 'Almond%20Biscotti.png', category: 'Pastries', restaurantId: 'r109' },
+
   // Asian Fusion Bowl (r110)
-  { id: 'd061', name: 'Spicy Salmon Poke Bowl', desc: 'Salmon, rice, avocado, spicy mayo.', price: 17.50, imgUrl: 'assets/Spicy Salmon Poke Bowl.png', category: 'Bowls', restaurantId: 'r110' },
-  { id: 'd062', name: 'Kimchi Fried Rice', desc: 'Kimchi, rice, egg, and vegetables wok-tossed.', price: 15.00, imgUrl: 'assets/Kimchi Fried Rice.png', category: 'Rice', restaurantId: 'r110' },
-  { id: 'd063', name: 'Gyoza (6 pcs)', desc: 'Pan-fried Japanese pork dumplings.', price: 8.50, imgUrl: 'assets/Gyoza.png', category: 'Appetizers', restaurantId: 'r110' },
-  { id: 'd064', name: 'Boba Tea', desc: 'Milk tea with chewy tapioca pearls.', price: 6.00, imgUrl: 'assets/Boba Tea.png', category: 'Beverages', restaurantId: 'r110' },
+  { id: 'd061', name: 'Spicy Salmon Poke Bowl', desc: 'Salmon, rice, avocado, spicy mayo.', price: 17.50, imgUrl: BASE_URL + 'Spicy%20Salmon%20Poke%20Bowl.png', category: 'Bowls', restaurantId: 'r110' },
+  { id: 'd062', name: 'Kimchi Fried Rice', desc: 'Kimchi, rice, egg, and vegetables wok-tossed.', price: 15.00, imgUrl: BASE_URL + 'Kimchi%20Fried%20Rice.png', category: 'Rice', restaurantId: 'r110' },
+  { id: 'd063', name: 'Gyoza (6 pcs)', desc: 'Pan-fried Japanese pork dumplings.', price: 8.50, imgUrl: BASE_URL + 'Gyoza.png', category: 'Appetizers', restaurantId: 'r110' },
+  { id: 'd064', name: 'Boba Tea', desc: 'Milk tea with chewy tapioca pearls.', price: 6.00, imgUrl: BASE_URL + 'Boba%20Tea.png', category: 'Beverages', restaurantId: 'r110' },
 
   // Donut Heaven (r111)
-  { id: 'd065', name: 'Glazed Donut', desc: 'Classic raised donut with sweet glaze.', price: 2.50, imgUrl: 'assets/Glazed Donut.png', category: 'Donuts', restaurantId: 'r111' },
-  { id: 'd066', name: 'Chocolate Frosted', desc: 'Donut with thick chocolate frosting.', price: 3.00, imgUrl: 'assets/Chocolate Frosted.png', category: 'Donuts', restaurantId: 'r111' },
-  { id: 'd067', name: 'Jelly Filled', desc: 'Donut filled with raspberry jelly.', price: 3.50, imgUrl: 'assets/Jelly Filled.png', category: 'Donuts', restaurantId: 'r111' },
-  { id: 'd068', name: 'Coffee (Small)', desc: 'Freshly brewed hot coffee.', price: 2.00, imgUrl: 'assets/Coffee.png', category: 'Beverages', restaurantId: 'r111' },
+  { id: 'd065', name: 'Glazed Donut', desc: 'Classic raised donut with sweet glaze.', price: 2.50, imgUrl: BASE_URL + 'Glazed%20Donut.png', category: 'Donuts', restaurantId: 'r111' },
+  { id: 'd066', name: 'Chocolate Frosted', desc: 'Donut with thick chocolate frosting.', price: 3.00, imgUrl: BASE_URL + 'Chocolate%20Frosted.png', category: 'Donuts', restaurantId: 'r111' },
+  { id: 'd067', name: 'Jelly Filled', desc: 'Donut filled with raspberry jelly.', price: 3.50, imgUrl: BASE_URL + 'Jelly%20Filled.png', category: 'Donuts', restaurantId: 'r111' },
+  { id: 'd068', name: 'Coffee (Small)', desc: 'Freshly brewed hot coffee.', price: 2.00, imgUrl: BASE_URL + 'Coffee.png', category: 'Beverages', restaurantId: 'r111' },
 
   // Healthy Hues (Salads) (r112)
-  { id: 'd069', name: 'Cobb Salad', desc: 'Chicken, bacon, egg, avocado, blue cheese.', price: 16.00, imgUrl: 'assets/Cobb Salad.png', category: 'Salads', restaurantId: 'r112' },
-  { id: 'd070', name: 'Chicken Avo Wrap', desc: 'Grilled chicken and avocado in a wheat wrap.', price: 14.50, imgUrl: 'assets/Chicken Avo Wrap.png', category: 'Wraps', restaurantId: 'r112' },
-  { id: 'd071', name: 'Protein Bowl', desc: 'Quinoa, salmon, sweet potato, greens.', price: 18.50, imgUrl: 'assets/Protein Bowl.png', category: 'Bowls', restaurantId: 'r112' },
-  { id: 'd072', name: 'Fresh Juice', desc: 'Freshly squeezed orange and carrot juice.', price: 6.00, imgUrl: 'assets/Fresh Juice.png', category: 'Beverages', restaurantId: 'r112' },
+  { id: 'd069', name: 'Cobb Salad', desc: 'Chicken, bacon, egg, avocado, blue cheese.', price: 16.00, imgUrl: BASE_URL + 'Cobb%20Salad.png', category: 'Salads', restaurantId: 'r112' },
+  { id: 'd070', name: 'Chicken Avo Wrap', desc: 'Grilled chicken and avocado in a wheat wrap.', price: 14.50, imgUrl: BASE_URL + 'Chicken%20Avo%20Wrap.png', category: 'Wraps', restaurantId: 'r112' },
+  { id: 'd071', name: 'Protein Bowl', desc: 'Quinoa, salmon, sweet potato, greens.', price: 18.50, imgUrl: BASE_URL + 'Protein%20Bowl.png', category: 'Bowls', restaurantId: 'r112' },
+  { id: 'd072', name: 'Fresh Juice', desc: 'Freshly squeezed orange and carrot juice.', price: 6.00, imgUrl: BASE_URL + 'Fresh%20Juice.png', category: 'Beverages', restaurantId: 'r112' },
 
   // Even more dishes for diversity
-  { id: 'd073', name: 'Vegan Pad Thai', desc: 'Rice noodles with peanuts, sprouts, and lime.', price: 15.00, imgUrl: 'assets/Vegan Pad Thai.png', category: 'Noodles', restaurantId: 'r103' },
-  { id: 'd074', name: 'Double Cheese Pizza', desc: 'Extra mozzarella and parmesan on classic base.', price: 17.50, imgUrl: 'assets/Double Cheese Pizza.png', category: 'Pizzas', restaurantId: 'r102' },
-  { id: 'd075', name: 'Spicy Chicken Wings (6pc)', desc: 'Crispy fried wings tossed in buffalo sauce.', price: 11.00, imgUrl: 'assets/Spicy Chicken Wings.png', category: 'Appetizers', restaurantId: 'r105' },
-  { id: 'd076', name: 'Lamb Seekh Kebab', desc: 'Ground lamb skewers grilled in tandoor.', price: 14.50, imgUrl: 'assets/kebab.png', category: 'Appetizers', restaurantId: 'r101' },
-  { id: 'd077', name: 'Shrimp Tempura (4pc)', desc: 'Lightly battered and fried shrimp.', price: 10.00, imgUrl: 'assets/Shrimp Tempura.png', category: 'Appetizers', restaurantId: 'r106' },
-  { id: 'd078', name: 'Fish Tacos (2 pcs)', desc: 'Battered fish, slaw, chipotle cream.', price: 13.00, imgUrl: 'assets/Fish Tacos.png', category: 'Tacos', restaurantId: 'r107' },
-  { id: 'd079', name: 'Baklava (3 pcs)', desc: 'Layered pastry filled with nuts and syrup.', price: 7.00, imgUrl: 'assets/Baklava.png', category: 'Desserts', restaurantId: 'r108' },
-  { id: 'd080', name: 'Pistachio Gelato', desc: 'Rich Italian pistachio ice cream.', price: 8.00, imgUrl: 'assets/Pistachio Gelato.png', category: 'Desserts', restaurantId: 'r102' },
-  { id: 'd081', name: 'Vegetable Chow Mein', desc: 'Stir-fried noodles with crisp vegetables.', price: 12.00, imgUrl: 'assets/Vegetable Chow Mein.png', category: 'Noodles', restaurantId: 'r104' },
-  { id: 'd082', name: 'Fresh Fruit Smoothie', desc: 'Mixed berries, banana, and water blend.', price: 6.50, imgUrl: 'assets/Fresh Fruit Smoothie.png', category: 'Beverages', restaurantId: 'r112' },
-  { id: 'd083', name: 'Double Espresso', desc: 'Strong, concentrated coffee shot.', price: 3.50, imgUrl: 'assets/Double Espresso.png', category: 'Coffee', restaurantId: 'r109' },
-  { id: 'd084', name: 'Chocolate Dipped Donut', desc: 'Classic donut dipped in dark chocolate.', price: 3.50, imgUrl: 'assets/Chocolate Dipped Donut.png', category: 'Donuts', restaurantId: 'r111' },
+  { id: 'd073', name: 'Vegan Pad Thai', desc: 'Rice noodles with peanuts, sprouts, and lime.', price: 15.00, imgUrl: BASE_URL + 'Vegan%20Pad%20Thai.png', category: 'Noodles', restaurantId: 'r103' },
+  { id: 'd074', name: 'Double Cheese Pizza', desc: 'Extra mozzarella and parmesan on classic base.', price: 17.50, imgUrl: BASE_URL + 'Double%20Cheese%20Pizza.png', category: 'Pizzas', restaurantId: 'r102' },
+  { id: 'd075', name: 'Spicy Chicken Wings (6pc)', desc: 'Crispy fried wings tossed in buffalo sauce.', price: 11.00, imgUrl: BASE_URL + 'Spicy%20Chicken%20Wings.png', category: 'Appetizers', restaurantId: 'r105' },
+  { id: 'd076', name: 'Lamb Seekh Kebab', desc: 'Ground lamb skewers grilled in tandoor.', price: 14.50, imgUrl: BASE_URL + 'kebab.png', category: 'Appetizers', restaurantId: 'r101' },
+  { id: 'd077', name: 'Shrimp Tempura (4pc)', desc: 'Lightly battered and fried shrimp.', price: 10.00, imgUrl: BASE_URL + 'Shrimp%20Tempura.png', category: 'Appetizers', restaurantId: 'r106' },
+  { id: 'd078', name: 'Fish Tacos (2 pcs)', desc: 'Battered fish, slaw, chipotle cream.', price: 13.00, imgUrl: BASE_URL + 'Fish%20Tacos.png', category: 'Tacos', restaurantId: 'r107' },
+  { id: 'd079', name: 'Baklava (3 pcs)', desc: 'Layered pastry filled with nuts and syrup.', price: 7.00, imgUrl: BASE_URL + 'Baklava.png', category: 'Desserts', restaurantId: 'r108' },
+  { id: 'd080', name: 'Pistachio Gelato', desc: 'Rich Italian pistachio ice cream.', price: 8.00, imgUrl: BASE_URL + 'Pistachio%20Gelato.png', category: 'Desserts', restaurantId: 'r102' },
+  { id: 'd081', name: 'Vegetable Chow Mein', desc: 'Stir-fried noodles with crisp vegetables.', price: 12.00, imgUrl: BASE_URL + 'Vegetable%20Chow%20Mein.png', category: 'Noodles', restaurantId: 'r104' },
+  { id: 'd082', name: 'Fresh Fruit Smoothie', desc: 'Mixed berries, banana, and water blend.', price: 6.50, imgUrl: BASE_URL + 'Fresh%20Fruit%20Smoothie.png', category: 'Beverages', restaurantId: 'r112' },
+  { id: 'd083', name: 'Double Espresso', desc: 'Strong, concentrated coffee shot.', price: 3.50, imgUrl: BASE_URL + 'Double%20Espresso.png', category: 'Coffee', restaurantId: 'r109' },
+  { id: 'd084', name: 'Chocolate Dipped Donut', desc: 'Classic donut dipped in dark chocolate.', price: 3.50, imgUrl: BASE_URL + 'Chocolate%20Dipped%20Donut.png', category: 'Donuts', restaurantId: 'r111' },
 
   // More dishes to reach over 70
-  { id: 'd085', name: 'Spicy Beef Burrito', desc: 'Large burrito with spicy shredded beef.', price: 15.00, imgUrl: 'assets/Spicy Beef Burrito.png', category: 'Burritos', restaurantId: 'r107' },
-  { id: 'd086', name: 'Chicken Skewers (2 pc)', desc: 'Grilled chicken skewers with sauce.', price: 12.00, imgUrl: 'assets/Chicken Skewers.png', category: 'Plates', restaurantId: 'r108' },
-  { id: 'd087', name: 'Veggie Pizza Slice', desc: 'Single slice of veggie pizza.', price: 4.00, imgUrl: 'assets/Veggie Pizza Slice.png', category: 'Pizzas', restaurantId: 'r102' },
-  { id: 'd088', name: 'Palak Paneer', desc: 'Spinach and cottage cheese curry.', price: 14.99, imgUrl: 'assets/Palak Paneer.png', category: 'Mains', restaurantId: 'r101' },
-  { id: 'd089', name: 'Sweet & Sour Pork', desc: 'Crispy pork pieces in classic sweet and sour sauce.', price: 17.50, imgUrl: 'assets/Sweet & Sour Pork.png', category: 'Mains', restaurantId: 'r104' },
-  { id: 'd090', name: 'Chocolate Milkshake', desc: 'Thick, creamy chocolate milkshake.', price: 7.00, imgUrl: 'assets/Chocolate Milkshake.png', category: 'Beverages', restaurantId: 'r105' },
+  { id: 'd085', name: 'Spicy Beef Burrito', desc: 'Large burrito with spicy shredded beef.', price: 15.00, imgUrl: BASE_URL + 'Spicy%20Beef%20Burrito.png', category: 'Burritos', restaurantId: 'r107' },
+  { id: 'd086', name: 'Chicken Skewers (2 pc)', desc: 'Grilled chicken skewers with sauce.', price: 12.00, imgUrl: BASE_URL + 'Chicken%20Skewers.png', category: 'Plates', restaurantId: 'r108' },
+  { id: 'd087', name: 'Veggie Pizza Slice', desc: 'Single slice of veggie pizza.', price: 4.00, imgUrl: BASE_URL + 'Veggie%20Pizza%20Slice.png', category: 'Pizzas', restaurantId: 'r102' },
+  { id: 'd088', name: 'Palak Paneer', desc: 'Spinach and cottage cheese curry.', price: 14.99, imgUrl: BASE_URL + 'Palak%20Paneer.png', category: 'Mains', restaurantId: 'r101' },
+  { id: 'd089', name: 'Sweet & Sour Pork', desc: 'Crispy pork pieces in classic sweet and sour sauce.', price: 17.50, imgUrl: BASE_URL + 'Sweet%20&%20Sour%20Pork.png', category: 'Mains', restaurantId: 'r104' },
+  { id: 'd090', name: 'Chocolate Milkshake', desc: 'Thick, creamy chocolate milkshake.', price: 7.00, imgUrl: BASE_URL + 'Chocolate%20Milkshake.png', category: 'Beverages', restaurantId: 'r105' },
 ];
 
 // --- MOCK RESTAURANT DATA (EXPANDED TO 12 RESTAURANTS) ---
