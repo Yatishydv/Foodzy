@@ -1815,7 +1815,7 @@ order.status === 'Delivered' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 te
 };
 
 
-// ProfilePage component remains the same
+// ProfilePage component - CORRECTED
 const ProfilePage = ({ userId, setCurrentPage, setModalMessage, handleSignOut, userEmail, userName, userAddress, handleProfileSave, loading }) => {
 // Mock user data for display (now handled by App state)
 const [nameInput, setNameInput] = useState(userName || '');
@@ -1894,19 +1894,19 @@ className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-green-
 <span>{loading ? 'Saving...' : 'Save Profile Changes'}</span>
 </button>
 
-<div className="flex justify-between pt-4 border-t">
-{/* UPDATED: Direct link to new dedicated history page */}
-<button onClick={() => setCurrentPage('history')} className="text-blue-600 hover:underline flex items-center"><ListOrdered className="w-4 h-4 mr-1"/> Order History</button>
-<button onClick={() => trackAnalytics('view_favorites')} className="text-pink-600 hover:underline flex items-center"><Heart className="w-4 h-4 mr-1"/> Favorites</button>
-</div>
-
-{/* Sign Out Button */}
+{/* Sign Out Button - MOVED TO NEW POSITION */}
 <button
     onClick={handleSignOut}
-    className="w-full text-center text-gray-500 hover:text-red-500 transition font-medium text-sm mt-4 border-t pt-4"
+    className="w-full text-center text-gray-500 hover:text-red-500 transition font-medium text-sm pt-4"
 >
     Sign Out
 </button>
+
+<div className="flex justify-between pt-4 border-t">
+{/* UPDATED: Direct link to new dedicated history page */}
+<button onClick={() => setCurrentPage('history')} className="text-blue-600 hover:underline flex items-center"><ListOrdered className="w-4 h-4 mr-1"/> Order History</button>
+{/* Favorites button REMOVED as requested */}
+</div>
 
 </div>
 </div>
@@ -2064,7 +2064,7 @@ const AuthPage = ({ setCurrentPage, setModalMessage }) => {
                 >
                     {/* FIX: Google Icon Visibility - Use the required Base64 image URL */}
                     <img 
-                        src="src/assets/googlelogo.png" 
+                        src="https://raw.githubusercontent.com/Yatishydv/Foodzy/main/assets/googlelogo.png" 
                         alt="Google logo" 
                         className="w-5 h-5" 
                     />
