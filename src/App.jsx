@@ -195,7 +195,7 @@ const MOCK_DISHES = [
 // FIX APPLIED: Using reliable placeholder URLs for the last 8 restaurants (r105-r112)
 const MOCK_RESTAURANTS = [
   // Original 4 (Assumed working based on the image)
-  { id: 'r101', name: 'The Curry House', cuisine: 'Indian', rating: 4.5, deliveryTime: 35, imageUrl: 'assets/The Curry House.png', seoKeywords: 'Best Biryani Delivery, North Indian Food' },
+  { id: 'r101', name: 'The Curry House', cuisine: 'Indian', rating: 4.5, deliveryTime: 35, imageUrl: 'https://github.com/Yatishydv/Foodzy/blob/main/assets/The%20Curry%20House.png', seoKeywords: 'Best Biryani Delivery, North Indian Food' },
   { id: 'r102', name: 'Pizza Planet', cuisine: 'Italian', rating: 4.8, deliveryTime: 25, imageUrl: 'assets/Pizza Planet.png', seoKeywords: 'Fastest Pizza Online, Italian Delivery' },
   { id: 'r103', name: 'Veggie Delights', cuisine: 'Vegan', rating: 4.3, deliveryTime: 40, imageUrl: 'assets/Veggie Delights.png', seoKeywords: 'Healthy Vegan Bowls, Plant-Based Meals' },
   { id: 'r104', name: 'Wok Master', cuisine: 'Chinese', rating: 4.6, deliveryTime: 30, imageUrl: 'assets/Wok Master.png', seoKeywords: 'Authentic Chinese Noodles, Fast Wok' },
