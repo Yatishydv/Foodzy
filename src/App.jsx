@@ -556,15 +556,15 @@ const Footer = ({ setCurrentPage }) => (
           <h4 className="text-lg font-bold mb-3">Connect</h4>
           {/* 3. Social media icons (USING CORRECT ICONS: Facebook, Twitter/X, Instagram) */}
           <div className="flex space-x-4">
-             <a href="https://facebook.com/foodzy" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700 rounded-full hover:bg-[#E94458] transition" aria-label="Facebook">
+             <a href="#" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700 rounded-full hover:bg-[#E94458] transition" aria-label="Facebook">
                  {/* FIX: Replaced User with Facebook icon */}
                  <Facebook className="w-5 h-5 text-white" /> 
              </a>
-             <a href="https://twitter.com/foodzy" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700 rounded-full hover:bg-[#E94458] transition" aria-label="Twitter">
+             <a href="#" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700 rounded-full hover:bg-[#E94458] transition" aria-label="Twitter">
                  {/* FIX: Replaced MessageCircle with Twitter icon */}
                  <Twitter className="w-5 h-5 text-white" /> 
              </a>
-             <a href="https://instagram.com/foodzy" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700 rounded-full hover:bg-[#E94458] transition" aria-label="Instagram">
+             <a href="#" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700 rounded-full hover:bg-[#E94458] transition" aria-label="Instagram">
                  {/* FIX: Replaced Heart with Instagram icon */}
                  <Instagram className="w-5 h-5 text-white" /> 
              </a>
