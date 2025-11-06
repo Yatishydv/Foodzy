@@ -192,22 +192,24 @@ const MOCK_DISHES = [
 ];
 
 // --- MOCK RESTAURANT DATA (EXPANDED TO 12 RESTAURANTS) ---
-// FIX APPLIED: Using reliable placeholder URLs for the last 8 restaurants (r105-r112)
+// FIX APPLIED: Using the direct raw content URL from GitHub for ALL restaurants.
+const UNIVERSAL_IMAGE_URL = 'https://raw.githubusercontent.com/Yatishydv/Foodzy/main/assets/The%20Curry%20House.png';
+
 const MOCK_RESTAURANTS = [
-  // Original 4 (Assumed working based on the image)
-  { id: 'r101', name: 'The Curry House', cuisine: 'Indian', rating: 4.5, deliveryTime: 35, imageUrl: 'https://github.com/Yatishydv/Foodzy/blob/main/assets/The%20Curry%20House.png', seoKeywords: 'Best Biryani Delivery, North Indian Food' },
-  { id: 'r102', name: 'Pizza Planet', cuisine: 'Italian', rating: 4.8, deliveryTime: 25, imageUrl: 'assets/Pizza Planet.png', seoKeywords: 'Fastest Pizza Online, Italian Delivery' },
-  { id: 'r103', name: 'Veggie Delights', cuisine: 'Vegan', rating: 4.3, deliveryTime: 40, imageUrl: 'assets/Veggie Delights.png', seoKeywords: 'Healthy Vegan Bowls, Plant-Based Meals' },
-  { id: 'r104', name: 'Wok Master', cuisine: 'Chinese', rating: 4.6, deliveryTime: 30, imageUrl: 'assets/Wok Master.png', seoKeywords: 'Authentic Chinese Noodles, Fast Wok' },
-  // New 8 (Using distinct placeholders to avoid broken image fallbacks)
-  { id: 'r105', name: 'The Burger Stop', cuisine: 'American', rating: 4.7, deliveryTime: 20, imageUrl: 'assets/TheBurgerStop.png', seoKeywords: 'Best Gourmet Burgers, Fast Food' },
-  { id: 'r106', name: 'Sushi Zen', cuisine: 'Japanese', rating: 4.9, deliveryTime: 30, imageUrl: 'assets/Sushi Zen.png', seoKeywords: 'Fresh Sushi Delivery, Japanese Rolls' },
-  { id: 'r107', name: 'Taco Fiesta', cuisine: 'Mexican', rating: 4.2, deliveryTime: 28, imageUrl: 'assets/Taco Fiesta.png', seoKeywords: 'Authentic Tacos, Burrito Delivery' },
-  { id: 'r108', name: 'Mediterranean Grill', cuisine: 'Mediterranean', rating: 4.4, deliveryTime: 38, imageUrl: 'assets/Mediterranean Grill.png', seoKeywords: 'Healthy Shawarma, Falafel Wraps' },
-  { id: 'r109', name: 'Cafe Latte', cuisine: 'Coffee & Pastries', rating: 4.1, deliveryTime: 15, imageUrl: 'assets/Cafe Latte.png', seoKeywords: 'Iced Coffee, Bakery Delivery' },
-  { id: 'r110', name: 'Asian Fusion Bowl', cuisine: 'Asian', rating: 4.5, deliveryTime: 32, imageUrl: 'assets/Asian Fusion Bowl.png', seoKeywords: 'Poke Bowls, Kimchi Rice' },
-  { id: 'r111', name: 'Donut Heaven', cuisine: 'Dessert', rating: 4.0, deliveryTime: 18, imageUrl: 'assets/Donut Heaven.png', seoKeywords: 'Donuts and Sweets, Dessert Delivery' },
-  { id: 'r112', name: 'Healthy Hues', cuisine: 'Salads & Wraps', rating: 4.6, deliveryTime: 25, imageUrl: 'assets/Healthy Hues.png', seoKeywords: 'Low Calorie Salads, Protein Bowls' },
+  // Original 4 
+  { id: 'r101', name: 'The Curry House', cuisine: 'Indian', rating: 4.5, deliveryTime: 35, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Best Biryani Delivery, North Indian Food' },
+  { id: 'r102', name: 'Pizza Planet', cuisine: 'Italian', rating: 4.8, deliveryTime: 25, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Fastest Pizza Online, Italian Delivery' },
+  { id: 'r103', name: 'Veggie Delights', cuisine: 'Vegan', rating: 4.3, deliveryTime: 40, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Healthy Vegan Bowls, Plant-Based Meals' },
+  { id: 'r104', name: 'Wok Master', cuisine: 'Chinese', rating: 4.6, deliveryTime: 30, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Authentic Chinese Noodles, Fast Wok' },
+  // New 8 (All using the same image)
+  { id: 'r105', name: 'The Burger Stop', cuisine: 'American', rating: 4.7, deliveryTime: 20, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Best Gourmet Burgers, Fast Food' },
+  { id: 'r106', name: 'Sushi Zen', cuisine: 'Japanese', rating: 4.9, deliveryTime: 30, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Fresh Sushi Delivery, Japanese Rolls' },
+  { id: 'r107', name: 'Taco Fiesta', cuisine: 'Mexican', rating: 4.2, deliveryTime: 28, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Authentic Tacos, Burrito Delivery' },
+  { id: 'r108', name: 'Mediterranean Grill', cuisine: 'Mediterranean', rating: 4.4, deliveryTime: 38, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Healthy Shawarma, Falafel Wraps' },
+  { id: 'r109', name: 'Cafe Latte', cuisine: 'Coffee & Pastries', rating: 4.1, deliveryTime: 15, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Iced Coffee, Bakery Delivery' },
+  { id: 'r110', name: 'Asian Fusion Bowl', cuisine: 'Asian', rating: 4.5, deliveryTime: 32, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Poke Bowls, Kimchi Rice' },
+  { id: 'r111', name: 'Donut Heaven', cuisine: 'Dessert', rating: 4.0, deliveryTime: 18, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Donuts and Sweets, Dessert Delivery' },
+  { id: 'r112', name: 'Healthy Hues', cuisine: 'Salads & Wraps', rating: 4.6, deliveryTime: 25, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Low Calorie Salads, Protein Bowls' },
 ];
 
 const MOCK_DAILY_DEALS = [
@@ -832,6 +834,7 @@ const HomePage = ({ restaurants, setCurrentPage, setSelectedRestaurant, userId, 
             onClick={() => handleRestaurantClick(restaurant)}
         >
             <img
+                // FIX: This image source now correctly points to the raw GitHub image content URL
                 src={restaurant.imageUrl}
                 alt={restaurant.name + ' restaurant image'}
                 className="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-110"
@@ -1680,12 +1683,12 @@ order.status === 'Delivered' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 te
 const ProfilePage = ({ userId, setCurrentPage, setModalMessage, handleSignOut, userEmail, userName, userAddress, handleProfileSave, loading }) => {
 // Mock user data for display (now handled by App state)
 const [nameInput, setNameInput] = useState(userName || '');
-const [addressInput, setAddressInput] = useState(userAddress || '456 Digital Marketing Lane, Jalandhar');
+const [addressInput, setAddress] = useState(userAddress || '456 Digital Marketing Lane, Jalandhar');
 
 // Sync local state with props from App (on first load or external update)
 useEffect(() => {
     setNameInput(userName || '');
-    setAddressInput(userAddress || '456 Digital Marketing Lane, Jalandhar');
+    setAddress(userAddress || '456 Digital Marketing Lane, Jalandhar');
 }, [userName, userAddress]);
 
 
@@ -1740,7 +1743,7 @@ className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm p-3 bg-gray-10
 <span className="text-gray-700 font-medium">Default Delivery Address</span>
 <textarea
 value={addressInput}
-onChange={(e) => setAddressInput(e.target.value)}
+onChange={(e) => setAddress(e.target.value)}
 rows="3"
 className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm p-3 focus:border-[#E94458] focus:ring focus:ring-red-200 focus:ring-opacity-50"
 />
@@ -1775,7 +1778,7 @@ className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-green-
     );
 };
 
-// ✅ NEW: AuthPage Component (MODIFIED to disable Google Sign-In)
+// ✅ NEW: AuthPage Component (MODIFIED to disable Google Sign-in)
 const AuthPage = ({ setCurrentPage, setModalMessage }) => {
     const [isLogin, setIsLogin] = useState(true);
     const [email, setEmail] = useState('');
