@@ -193,23 +193,36 @@ const MOCK_DISHES = [
 
 // --- MOCK RESTAURANT DATA (EXPANDED TO 12 RESTAURANTS) ---
 // FIX APPLIED: Using the direct raw content URL from GitHub for ALL restaurants.
-const UNIVERSAL_IMAGE_URL = 'https://raw.githubusercontent.com/Yatishydv/Foodzy/main/assets/The%20Curry%20House.png';
+const UNIVERSAL_IMAGE_URL1 = 'https://raw.githubusercontent.com/Yatishydv/Foodzy/main/assets/The%20Curry%20House.png';
+const UNIVERSAL_IMAGE_URL2 = 'https://raw.githubusercontent.com/Yatishydv/Foodzy/main/assets/Pizza%20Planet.png';
+const UNIVERSAL_IMAGE_URL3 = 'https://raw.githubusercontent.com/Yatishydv/Foodzy/main/assets/Veggie%20Delights.png';
+const UNIVERSAL_IMAGE_URL4 = 'https://raw.githubusercontent.com/Yatishydv/Foodzy/main/assets/Wok%20Master.png';
+const UNIVERSAL_IMAGE_URL5 = 'https://raw.githubusercontent.com/Yatishydv/Foodzy/main/assets/TheBurgerStop.png';
+const UNIVERSAL_IMAGE_URL6 = 'https://raw.githubusercontent.com/Yatishydv/Foodzy/main/assets/Sushi%20Zen.png';
+const UNIVERSAL_IMAGE_URL7 = 'https://raw.githubusercontent.com/Yatishydv/Foodzy/main/assets/Taco%20Fiesta.png';
+const UNIVERSAL_IMAGE_URL8 = 'https://raw.githubusercontent.com/Yatishydv/Foodzy/main/assets/Mediterranean%20Grill.png';
+const UNIVERSAL_IMAGE_URL9 = 'https://raw.githubusercontent.com/Yatishydv/Foodzy/main/assets/Cafe%20Latte.png';
+const UNIVERSAL_IMAGE_URL10 = 'https://raw.githubusercontent.com/Yatishydv/Foodzy/main/assets/Asian%20Fusion%20Bowl.png';
+const UNIVERSAL_IMAGE_URL11 = 'https://raw.githubusercontent.com/Yatishydv/Foodzy/main/assets/Donut%20Heaven.png';
+const UNIVERSAL_IMAGE_URL12 = 'https://raw.githubusercontent.com/Yatishydv/Foodzy/main/assets/Healthy%20Hues.png';
+
+
 
 const MOCK_RESTAURANTS = [
   // Original 4 
-  { id: 'r101', name: 'The Curry House', cuisine: 'Indian', rating: 4.5, deliveryTime: 35, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Best Biryani Delivery, North Indian Food' },
-  { id: 'r102', name: 'Pizza Planet', cuisine: 'Italian', rating: 4.8, deliveryTime: 25, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Fastest Pizza Online, Italian Delivery' },
-  { id: 'r103', name: 'Veggie Delights', cuisine: 'Vegan', rating: 4.3, deliveryTime: 40, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Healthy Vegan Bowls, Plant-Based Meals' },
-  { id: 'r104', name: 'Wok Master', cuisine: 'Chinese', rating: 4.6, deliveryTime: 30, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Authentic Chinese Noodles, Fast Wok' },
+  { id: 'r101', name: 'The Curry House', cuisine: 'Indian', rating: 4.5, deliveryTime: 35, imageUrl: UNIVERSAL_IMAGE_URL1, seoKeywords: 'Best Biryani Delivery, North Indian Food' },
+  { id: 'r102', name: 'Pizza Planet', cuisine: 'Italian', rating: 4.8, deliveryTime: 25, imageUrl: UNIVERSAL_IMAGE_URL2, seoKeywords: 'Fastest Pizza Online, Italian Delivery' },
+  { id: 'r103', name: 'Veggie Delights', cuisine: 'Vegan', rating: 4.3, deliveryTime: 40, imageUrl: UNIVERSAL_IMAGE_URL3, seoKeywords: 'Healthy Vegan Bowls, Plant-Based Meals' },
+  { id: 'r104', name: 'Wok Master', cuisine: 'Chinese', rating: 4.6, deliveryTime: 30, imageUrl: UNIVERSAL_IMAGE_URL4, seoKeywords: 'Authentic Chinese Noodles, Fast Wok' },
   // New 8 (All using the same image)
-  { id: 'r105', name: 'The Burger Stop', cuisine: 'American', rating: 4.7, deliveryTime: 20, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Best Gourmet Burgers, Fast Food' },
-  { id: 'r106', name: 'Sushi Zen', cuisine: 'Japanese', rating: 4.9, deliveryTime: 30, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Fresh Sushi Delivery, Japanese Rolls' },
-  { id: 'r107', name: 'Taco Fiesta', cuisine: 'Mexican', rating: 4.2, deliveryTime: 28, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Authentic Tacos, Burrito Delivery' },
-  { id: 'r108', name: 'Mediterranean Grill', cuisine: 'Mediterranean', rating: 4.4, deliveryTime: 38, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Healthy Shawarma, Falafel Wraps' },
-  { id: 'r109', name: 'Cafe Latte', cuisine: 'Coffee & Pastries', rating: 4.1, deliveryTime: 15, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Iced Coffee, Bakery Delivery' },
-  { id: 'r110', name: 'Asian Fusion Bowl', cuisine: 'Asian', rating: 4.5, deliveryTime: 32, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Poke Bowls, Kimchi Rice' },
-  { id: 'r111', name: 'Donut Heaven', cuisine: 'Dessert', rating: 4.0, deliveryTime: 18, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Donuts and Sweets, Dessert Delivery' },
-  { id: 'r112', name: 'Healthy Hues', cuisine: 'Salads & Wraps', rating: 4.6, deliveryTime: 25, imageUrl: UNIVERSAL_IMAGE_URL, seoKeywords: 'Low Calorie Salads, Protein Bowls' },
+  { id: 'r105', name: 'The Burger Stop', cuisine: 'American', rating: 4.7, deliveryTime: 20, imageUrl: UNIVERSAL_IMAGE_URL5, seoKeywords: 'Best Gourmet Burgers, Fast Food' },
+  { id: 'r106', name: 'Sushi Zen', cuisine: 'Japanese', rating: 4.9, deliveryTime: 30, imageUrl: UNIVERSAL_IMAGE_URL6, seoKeywords: 'Fresh Sushi Delivery, Japanese Rolls' },
+  { id: 'r107', name: 'Taco Fiesta', cuisine: 'Mexican', rating: 4.2, deliveryTime: 28, imageUrl: UNIVERSAL_IMAGE_URL7, seoKeywords: 'Authentic Tacos, Burrito Delivery' },
+  { id: 'r108', name: 'Mediterranean Grill', cuisine: 'Mediterranean', rating: 4.4, deliveryTime: 38, imageUrl: UNIVERSAL_IMAGE_URL8, seoKeywords: 'Healthy Shawarma, Falafel Wraps' },
+  { id: 'r109', name: 'Cafe Latte', cuisine: 'Coffee & Pastries', rating: 4.1, deliveryTime: 15, imageUrl: UNIVERSAL_IMAGE_URL9, seoKeywords: 'Iced Coffee, Bakery Delivery' },
+  { id: 'r110', name: 'Asian Fusion Bowl', cuisine: 'Asian', rating: 4.5, deliveryTime: 32, imageUrl: UNIVERSAL_IMAGE_URL10, seoKeywords: 'Poke Bowls, Kimchi Rice' },
+  { id: 'r111', name: 'Donut Heaven', cuisine: 'Dessert', rating: 4.0, deliveryTime: 18, imageUrl: UNIVERSAL_IMAGE_URL11, seoKeywords: 'Donuts and Sweets, Dessert Delivery' },
+  { id: 'r112', name: 'Healthy Hues', cuisine: 'Salads & Wraps', rating: 4.6, deliveryTime: 25, imageUrl: UNIVERSAL_IMAGE_URL12, seoKeywords: 'Low Calorie Salads, Protein Bowls' },
 ];
 
 const MOCK_DAILY_DEALS = [
